@@ -1,4 +1,10 @@
+п»їusing Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MvcMovieKIRILL05.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<MvcMovieKIRILL05Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcMovieKIRILL05Context") ?? throw new InvalidOperationException("Connection string 'MvcMovieKIRILL05Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,7 +28,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-   //контроллер и метод по умолчанию
+   //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
