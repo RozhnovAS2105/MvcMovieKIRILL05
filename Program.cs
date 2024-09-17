@@ -22,6 +22,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
+   //контроллер и метод по умолчанию
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
